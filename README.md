@@ -1,4 +1,5 @@
-
+# Docker & Kubernetes: The Practical Guide [2022 Edition]
+## Learn Docker, Docker Compose, Multi-Container Projects, Deployment and all about Kubernetes from the ground up!
 
 # docker cli commands
 
@@ -34,27 +35,27 @@ Options:
       --until string   Show logs before a timestamp (e.g. 2013-01-02T13:23:37Z) or relative (e.g. 42m for 42 minutes)
 ```
 
-### 31. Entering Interactive Mode
+## 31. Entering Interactive Mode
 - docker run -it CONTAINER -> opção -a (attach) é default, -i iterativo, -t terminal
 - docker stop CONTAINER
 - docker start -a -i CONTAINER
 
-### 32. Deleting Images & Containers
+## 32. Deleting Images & Containers
 - docker image prune -> remove todas as imagens
 - docker rm CONTAINER -> remove um container que esteja parado
 - docker rmi IMAGE -> remove uma imagem sem containers
 
-### 33. Removing Stopped Containers Automatically
+## 33. Removing Stopped Containers Automatically
 - docker run -it --rm IMAGE -> --rm remove o container quando ele parar 
 
-### 34. A Look Behind the Scenes: Inspecting Images
+## 34. A Look Behind the Scenes: Inspecting Images
 - docker image inspect IMAGE
 
-### 35. Copying Files Into & From A Container
+## 35. Copying Files Into & From A Container
 - container em execução
 - docker cp ../dummy/teste.txt 095216caec01:/app/teste3.txt -> envia do host para o container, mas para uma pasta que exista no container
 - docker cp 095216caec01:/app/teste3.txt ../dummy -> envia do container para o host
 
-### 36. Naming & Tagging Containers and Images
+## 36. Naming & Tagging Containers and Images
 - docker build -t name:tag .
 - docker run -p 8080:80 --name cont_name IMAGE
