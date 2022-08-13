@@ -59,3 +59,17 @@ Options:
 ## 36. Naming & Tagging Containers and Images
 - docker build -t name:tag .
 - docker run -p 8080:80 --name cont_name IMAGE
+
+## 37. Sharing Images - Overview
+- Com Dockerfile ou a própria imagem com docker push/pull
+
+## 38. Pushing Images to DockerHub
+- cria a conta gratuita no docker hub
+- docker build -t {user_name}/{image_name} .
+- docker login
+- cria o repositório no docker hub (Oficial docker image registry)
+- docker push {user_name}/{image_name}
+- docker pull {user_name}/{image_name}
+
+## 39. Pulling & Using Shared Images
+- 
