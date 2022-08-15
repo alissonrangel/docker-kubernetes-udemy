@@ -73,3 +73,35 @@ Options:
 
 ## 39. Pulling & Using Shared Images
 - 
+
+## 49. Named Volumes To The Rescue!
+- docker run -p 80:80 -d --rm --name feedback-app -v feedback:/app/feedback feedback-node:v3
+- docker volume ls 
+- docker volume rm VOLUME
+
+Removing Anonymous Volumes
+We saw, that anonymous volumes are removed automatically, when a container is removed.
+
+This happens when you start / run a container with the --rm option.
+
+If you start a container without that option, the anonymous volume would NOT be removed, even if you remove the container (with docker rm ...).
+
+Still, if you then re-create and re-run the container (i.e. you run docker run ... again), a new anonymous volume will be created. So even though the anonymous volume wasn't removed automatically, it'll also not be helpful because a different anonymous volume is attached the next time the container starts (i.e. you removed the old container and run a new one).
+
+Now you just start piling up a bunch of unused anonymous volumes - you can clear them via docker volume rm VOL_NAME or docker volume prune.
+
+## 51. Getting Started With Bind Mounts (Code Sharing)
+
+- docker logs CONTAINER
+- docker run -p 80:80 -d --rm --name feedback-app -v feedback:/app/feedback -v $(pwd):/app feedback-node:v3
+
+Bind Mounts - Shortcuts
+Just a quick note: If you don't always want to copy and use the full path, you can use these shortcuts:
+
+macOS / Linux: -v $(pwd):/app
+
+Windows: -v "%cd%":/app
+
+## 53. Combining & Merging Different Volumes
+
+- docker run -p 80:80 -d --name feedback-app -v feedback:/app/feedback -v $(pwd):/app -v /app/node_modules feedback-node:v5
